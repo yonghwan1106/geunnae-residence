@@ -1,11 +1,24 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect } from 'react'
 
 declare global {
   interface Window {
-    kakao: any;
+    kakao: {
+      maps: {
+        load: (callback: () => void) => void;
+        LatLng: new (lat: number, lng: number) => any;
+        Map: new (container: HTMLElement, options: any) => any;
+        Marker: new (options: any) => any;
+        InfoWindow: new (options: any) => any;
+        services: {
+          Status: {
+            OK: string;
+          };
+          Geocoder: new () => any;
+        };
+      };
+    };
   }
 }
 
@@ -13,31 +26,58 @@ export default function LocationPage() {
   useEffect(() => {
     const script = document.createElement('script')
     script.async = true
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY}&autoload=false`
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY}&libraries=services&autoload=false`
     document.head.appendChild(script)
 
     script.onload = () => {
       window.kakao.maps.load(() => {
         const container = document.getElementById('kakao-map')
         const options = {
-          center: new window.kakao.maps.LatLng(36.99132, 127.11528), // 평택시 객사리 162-82 좌표
+          center: new window.kakao.maps.LatLng(37.0, 127.0), // 임시 중심점
           level: 3
         }
 
         const map = new window.kakao.maps.Map(container, options)
 
-        // 마커 표시
-        const markerPosition = new window.kakao.maps.LatLng(36.99132, 127.11528)
-        const marker = new window.kakao.maps.Marker({
-          position: markerPosition
-        })
-        marker.setMap(map)
+        // 주소-좌표 변환 객체 생성
+        const geocoder = new window.kakao.maps.services.Geocoder()
 
-        // 인포윈도우 표시
-        const infowindow = new window.kakao.maps.InfoWindow({
-          content: '<div style="padding:5px;font-size:12px;">근내리 레지던스<br/>평택시 객사리 162-82</div>'
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch('경기도 평택시 객사리 162-82', function(result: { x: string; y: string }[], status: string) {
+          // 정상적으로 검색이 완료됐으면
+          if (status === window.kakao.maps.services.Status.OK) {
+            const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x)
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords)
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            const marker = new window.kakao.maps.Marker({
+              map: map,
+              position: coords
+            })
+
+            // 인포윈도우로 장소에 대한 설명을 표시합니다
+            const infowindow = new window.kakao.maps.InfoWindow({
+              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>경기도 평택시 객사리 162-82</div>'
+            })
+            infowindow.open(map, marker)
+          } else {
+            // 주소 검색 실패시 대체 좌표 사용 (평택시청 근처)
+            const coords = new window.kakao.maps.LatLng(36.9922, 127.1116)
+            map.setCenter(coords)
+            
+            const marker = new window.kakao.maps.Marker({
+              map: map,
+              position: coords
+            })
+
+            const infowindow = new window.kakao.maps.InfoWindow({
+              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>평택시 객사리 162-82<br/>(대략적 위치)</div>'
+            })
+            infowindow.open(map, marker)
+          }
         })
-        infowindow.open(map, marker)
       })
     }
 
