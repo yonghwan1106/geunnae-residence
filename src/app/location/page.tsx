@@ -46,7 +46,7 @@ export default function LocationPage() {
         const geocoder = new window.kakao.maps.services.Geocoder()
 
         // 주소로 좌표를 검색합니다
-        geocoder.addressSearch('경기도 평택시 객사리 162-82', function(result: { x: string; y: string }[], status: string) {
+        geocoder.addressSearch('경기도 평택시 팽성읍 객사리 164-82', function(result: { x: string; y: string }[], status: string) {
           // 정상적으로 검색이 완료됐으면
           if (status === window.kakao.maps.services.Status.OK) {
             const coords = new window.kakao.maps.LatLng(parseFloat(result[0].y), parseFloat(result[0].x))
@@ -62,7 +62,7 @@ export default function LocationPage() {
 
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>경기도 평택시 객사리 162-82</div>'
+              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>경기도 평택시 팽성읍 객사리 164-82</div>'
             })
             infowindow.open(map, marker)
           } else {
@@ -76,7 +76,7 @@ export default function LocationPage() {
             })
 
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>평택시 객사리 162-82<br/>(대략적 위치)</div>'
+              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>평택시 팽성읍 객사리 164-82<br/>(대략적 위치)</div>'
             })
             infowindow.open(map, marker)
           }
@@ -97,7 +97,7 @@ export default function LocationPage() {
             위치 안내
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            평택 객사리 162-82에 위치한 객사리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
+            평택시 팽성읍 객사리 164-82에 위치한 근내리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
           </p>
         </div>
 
@@ -111,7 +111,8 @@ export default function LocationPage() {
                 <span className="text-blue-600 mr-3 mt-1">📍</span>
                 <div>
                   <h3 className="font-semibold text-gray-900">주소</h3>
-                  <p className="text-gray-600">경기도 평택시 객사리 162-82</p>
+                  <p className="text-gray-600">경기도 평택시 팽성읍 객사리 164-82</p>
+                  <p className="text-gray-500 text-sm">우편번호: 17957</p>
                 </div>
               </div>
               
