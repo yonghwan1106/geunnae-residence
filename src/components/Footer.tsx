@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">근내리 레지던스</h3>
+            <h3 className="text-xl font-bold mb-4">객사리 레지던스</h3>
             <p className="text-gray-300 mb-4">
               평택 객사리의 안정적인 중장기 월세 원룸
             </p>
@@ -18,9 +18,9 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">연락처</h3>
             <div className="space-y-2 text-gray-300">
-              <p>📍 경기도 평택시 객사리 162-82</p>
+              <p>📍 경기도 평택시 팽성읍 객사리 164-82</p>
               <p>📞 010-8993-1328</p>
-              <p>✉️ info@geunnae-residence.com</p>
+              <p>✉️ info@gaeksa-residence.com</p>
               <p>🕐 평일 9시 - 20시</p>
             </div>
           </div>
@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 근내리 레지던스. All rights reserved.</p>
+          <p>&copy; 2024 객사리 레지던스. All rights reserved.</p>
         </div>
       </div>
     </footer>

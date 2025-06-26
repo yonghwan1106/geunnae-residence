@@ -62,7 +62,7 @@ export default function LocationPage() {
 
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>경기도 평택시 팽성읍 객사리 164-82</div>'
+              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>경기도 평택시 팽성읍 객사리 164-82</div>'
             })
             infowindow.open(map, marker)
           } else {
@@ -76,7 +76,7 @@ export default function LocationPage() {
             })
 
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>평택시 팽성읍 객사리 164-82<br/>(대략적 위치)</div>'
+              content: '<div style="width:180px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>평택시 팽성읍 객사리 164-82<br/>(대략적 위치)</div>'
             })
             infowindow.open(map, marker)
           }
@@ -97,7 +97,7 @@ export default function LocationPage() {
             위치 안내
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            평택시 팽성읍 객사리 164-82에 위치한 근내리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
+            평택시 팽성읍 객사리 164-82에 위치한 객사리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
           </p>
         </div>
 

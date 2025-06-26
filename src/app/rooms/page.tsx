@@ -104,7 +104,7 @@ export default function RoomsPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            근내리 레지던스 원룸 안내
+            객사리 레지던스 원룸 안내
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             6평 규모의 깨끗하고 편안한 원룸을 제공합니다. 중장기 거주에 최적화된 공간을 선택하세요.
@@ -188,7 +188,7 @@ export default function RoomsPage() {
         {/* Additional Info */}
         <div className="bg-white rounded-lg shadow-sm p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-            근내리 레지던스 공통 혜택
+            객사리 레지던스 공통 혜택
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
