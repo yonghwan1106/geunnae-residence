@@ -12,7 +12,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">근내리 레지던스</span>
+            <span className="text-2xl font-bold text-blue-600">객사리 레지던스</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -63,7 +63,7 @@ export default function ContactPage() {
             임대 문의
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            근내리 레지던스 6평 원룸 임대에 관심이 있으시면 언제든 연락주세요.
+            객사리 레지던스 6평 원룸 임대에 관심이 있으시면 언제든 연락주세요.
           </p>
         </div>
 
@@ -192,7 +192,7 @@ export default function ContactPage() {
                     <a href="tel:010-8993-1328" className="text-blue-600 hover:text-blue-800 text-lg font-medium">
                       010-8993-1328
                     </a>
-                    <p className="text-gray-600 text-sm">평일 9시 - 20시 (연중무휴)</p>
+                    <p className="text-gray-600 text-sm">평일 9시 - 20시 (연중무휴) | 카톡 선호</p>
                   </div>
                 </div>
 
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   <span className="text-2xl mr-4">✉️</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">이메일</h3>
-                    <p className="text-blue-600">info@geunnae-residence.com</p>
+                    <p className="text-blue-600">dragonguy628@gmail.com</p>
                     <p className="text-gray-600 text-sm">24시간 접수 가능</p>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">중개수수료:</span>
-                  <span className="font-medium">최대 11.15만원</span>
+                  <span className="font-medium text-green-600">없음 (건물주 직접)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">보증금:</span>

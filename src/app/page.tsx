@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 const heroSlides = [
   {
     image: '/images/rooms/room1.jpg',
-    title: '근내리 레지던스',
+    title: '객사리 레지던스',
     subtitle: '평택 객사리의 안정적인 중장기 월세 원룸',
     description: '미군기지와 삼성전자 근무자를 위한 최적의 주거공간'
   },
@@ -138,7 +138,7 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">근내리 레지던스 특징</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">객사리 레지던스 특징</h2>
             <p className="text-lg text-gray-600">미군기지와 삼성전자 근무자들을 위한 최적의 중장기 거주 환경</p>
           </div>
           

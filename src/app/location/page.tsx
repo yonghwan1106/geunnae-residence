@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
   interface Window {
     kakao: {
@@ -32,6 +33,8 @@ export default function LocationPage() {
     script.onload = () => {
       window.kakao.maps.load(() => {
         const container = document.getElementById('kakao-map')
+        if (!container) return
+        
         const options = {
           center: new window.kakao.maps.LatLng(37.0, 127.0), // 임시 중심점
           level: 3
@@ -46,7 +49,7 @@ export default function LocationPage() {
         geocoder.addressSearch('경기도 평택시 객사리 162-82', function(result: { x: string; y: string }[], status: string) {
           // 정상적으로 검색이 완료됐으면
           if (status === window.kakao.maps.services.Status.OK) {
-            const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x)
+            const coords = new window.kakao.maps.LatLng(parseFloat(result[0].y), parseFloat(result[0].x))
 
             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
             map.setCenter(coords)
@@ -59,7 +62,7 @@ export default function LocationPage() {
 
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>경기도 평택시 객사리 162-82</div>'
+              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>경기도 평택시 객사리 162-82</div>'
             })
             infowindow.open(map, marker)
           } else {
@@ -73,7 +76,7 @@ export default function LocationPage() {
             })
 
             const infowindow = new window.kakao.maps.InfoWindow({
-              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>근내리 레지던스</strong><br/>평택시 객사리 162-82<br/>(대략적 위치)</div>'
+              content: '<div style="width:150px;text-align:center;padding:6px 0;"><strong>객사리 레지던스</strong><br/>평택시 객사리 162-82<br/>(대략적 위치)</div>'
             })
             infowindow.open(map, marker)
           }
@@ -94,7 +97,7 @@ export default function LocationPage() {
             위치 안내
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            평택 객사리 162-82에 위치한 근내리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
+            평택 객사리 162-82에 위치한 객사리 레지던스는 미군기지와 삼성전자 접근이 용이한 최적의 입지입니다.
           </p>
         </div>
 
@@ -141,7 +144,7 @@ export default function LocationPage() {
           {/* Kakao Map */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">지도</h2>
-            <div id="kakao-map" className="h-64 rounded-lg bg-gray-200"></div>
+            <div id="kakao-map" className="w-full h-96 rounded-lg border-2 border-gray-200"></div>
           </div>
         </div>
 
