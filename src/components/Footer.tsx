@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>📍 경기도 평택시 팽성읍 객사리 164-82</p>
               <p>📞 010-8993-1328</p>
-              <p>✉️ info@gaeksa-residence.com</p>
+              <p>✉️ dragonguy628@gmail.com</p>
               <p>🕐 평일 9시 - 20시</p>
             </div>
           </div>
